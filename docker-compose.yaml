@@ -1,0 +1,22 @@
+version: "3.7"
+services:
+  druid:
+    image: kazanglenn/docker-druid
+    ports: 
+      - 8081:8081
+      - 8082:8082
+      - 8083:8083
+  metabase:
+    image: metabase/metabase
+    ports: 
+      - 3000:3000
+  scope:
+    image: weaveworks/scope
+    labels:
+      - "works.weave.role=system"
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock:rw"
+    command:
+      - "--probe.docker=true"
+    ports:
+      - 4040:4040  
