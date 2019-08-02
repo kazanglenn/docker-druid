@@ -6,6 +6,7 @@ services:
       - 8081:8081
       - 8082:8082
       - 8083:8083
+      - 8888:8888
   metabase:
     image: metabase/metabase
     ports: 
